@@ -48,7 +48,7 @@ class SummaryReporter implements Reporter {
 
         this.ctx.logger.console.info("##teamcity[message text='==================== Tests summary ====================']");
         this.ctx.logger.console.info(`##teamcity[message text='Test Suites:   ${summary.failedSuitesCount} failed | ${summary.totalSuitesCount - summary.failedSuitesCount} passed']`);
-        this.ctx.logger.console.info(`##teamcity[message text='Test:          improv${summary.failedTestsCount} failed | ${summary.totalTestsCount - summary.failedTestsCount} passed']`);
+        this.ctx.logger.console.info(`##teamcity[message text='Test:          ${summary.failedTestsCount} failed | ${summary.totalTestsCount - summary.failedTestsCount} passed']`);
         if (summary.suiteErrors.length > 0) {
             this.ctx.logger.console.info("##teamcity[message text='-------------------- Suite errors --------------------']");
             for (const error of summary.suiteErrors) {
