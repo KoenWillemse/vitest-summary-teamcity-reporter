@@ -1,7 +1,16 @@
 {
   "name": "vitest-summary-teamcity-reporter",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha0001",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KoenWillemse/vitest-summary-teamcity-reporter"
+  },
+  "keywords": [
+    "vitest",
+    "teamcity",
+    "reporter"
+  ],
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json"
@@ -14,5 +23,5 @@
     "vitest": ">=0.34.0 || >=1.0.0"
   },
   "author": "Koen Willemse",
-  "license": "ISC"
+  "license": "MIT"
 }
