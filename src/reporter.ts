@@ -46,7 +46,7 @@ class SummaryReporter implements Reporter {
     onFinished(files = this.ctx.state.getFiles(), errors = this.ctx.state.getUnhandledErrors()): Awaitable<void> {
         const summary = this.getSummary(files);
 
-        this.ctx.logger.console.info("##teamcity[message name='==================== Tests summary ====================']");
+        this.ctx.logger.console.info("##teamcity[message text='==================== Tests summary ====================']");
         this.ctx.logger.console.info(`##teamcity[message text='Test Suites:   ${summary.failedSuitesCount} failed | ${summary.totalSuitesCount - summary.failedSuitesCount} passed']`);
         this.ctx.logger.console.info(`##teamcity[message text='Test:          improv${summary.failedTestsCount} failed | ${summary.totalTestsCount - summary.failedTestsCount} passed']`);
         if (summary.suiteErrors.length > 0) {
@@ -56,7 +56,7 @@ class SummaryReporter implements Reporter {
             }
             this.ctx.logger.console.info("##teamcity[message text='------------------------------------------------------']");
         }
-        this.ctx.logger.console.info("##teamcity[message name='=======================================================']");
+        this.ctx.logger.console.info("##teamcity[message text='=======================================================']");
         return Promise.resolve();
     }
 }
