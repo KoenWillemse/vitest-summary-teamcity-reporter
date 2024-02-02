@@ -46,9 +46,9 @@ class SummaryReporter implements Reporter {
     onFinished(files = this.ctx.state.getFiles(), errors = this.ctx.state.getUnhandledErrors()): Awaitable<void> {
         const summary = this.getSummary(files);
 
-        this.ctx.logger.console.info("##teamcity[blockOpened name='Tests summary']");
-        this.ctx.logger.console.info(`##teamcity[message text='Test Suites: ${summary.failedSuitesCount} failed | ${summary.totalSuitesCount - summary.failedSuitesCount} passed']`);
-        this.ctx.logger.console.info(`##teamcity[message text='Test: ${summary.failedTestsCount} failed | ${summary.totalTestsCount - summary.failedTestsCount} passed']`);
+        this.ctx.logger.console.info("##teamcity[message name='==================== Tests summary ====================']");
+        this.ctx.logger.console.info(`##teamcity[message text='Test Suites:   ${summary.failedSuitesCount} failed | ${summary.totalSuitesCount - summary.failedSuitesCount} passed']`);
+        this.ctx.logger.console.info(`##teamcity[message text='Test:          improv${summary.failedTestsCount} failed | ${summary.totalTestsCount - summary.failedTestsCount} passed']`);
         if (summary.suiteErrors.length > 0) {
             this.ctx.logger.console.info("##teamcity[message text='-------------------- Suite errors --------------------']");
             for (const error of summary.suiteErrors) {
@@ -56,7 +56,7 @@ class SummaryReporter implements Reporter {
             }
             this.ctx.logger.console.info("##teamcity[message text='------------------------------------------------------']");
         }
-        this.ctx.logger.console.info("##teamcity[blockClosed name='Tests summary']");
+        this.ctx.logger.console.info("##teamcity[message name='=======================================================']");
         return Promise.resolve();
     }
 }
